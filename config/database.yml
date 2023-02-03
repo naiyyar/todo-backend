@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  timeout: <%= ENV["DB_TIMEOUT"] || 10 %>
+  pool: <%= ENV["DB_POOL"] || ENV["RAILS_MAX_THREADS"] || 50 %>
+  username: 'abbas'
+  password: 'abbas'
+  host: 'localhost'
+
+development:
+  <<: *default
+  database: todo_backend_development
+
+test:
+  <<: *default
+  database: todo_backend_test
+
